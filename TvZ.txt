@@ -1,0 +1,44 @@
+00:17 SupplyDepot
+00:41 Barracks
+00:44 Refinery
+01:05 3x Mine gas
+01:28 OrbitalCommand, Reaper
+01:39 CommandCenter
+01:46 SupplyDepot
+01:55 Queue Marine
+02:02 Factory
+02:10 Refinery
+02:19 Reactor
+02:31 3x Mine gas
+02:50 Starport, OrbitalCommand
+02:52 SupplyDepot
+02:55 Swap Factory
+03:01 Hellions
+03:02 TechLab
+03:22 Hellions
+03:23 SupplyDepot
+03:27 Liberator
+03:31 Marine
+03:40 Stimpack
+03:44 Hellions
+04:00 CommandCenter, Mule
+04:05 Lift Factory from Reactor
+04:08 Double Barracks and Starport Reactor
+04:13 FactoryTechLab
+04:21 Double E Bay
+04:29 Double Refinery
+04:35 SupplyDepot
+04:46 One One
+04:50 Starport Reactor
+04:51 Mine gas
+04:58 SiegeTank
+04:59 SupplyDepot
+05:11 OrbitalCommand
+05:11 Marines
+05:14 SupplyDepot
+05:20 Combat Shields
+05:30 SiegeTank
+05:30 Marines
+05:36 Medivacs
+05:39 Depot Depot
+05:48 Marines
