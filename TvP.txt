@@ -1,51 +1,80 @@
-00:17 SupplyDepot
-00:39 Barracks
-00:43 Refinery
-01:05 Mine gas, Rally scout
-01:27 Orbital, Marine
-01:41 CommandCenter
-01:45 Reactor
-01:48 Ready SCV to Make Depot
-01:50 Micro Scouting SCV
-01:53 Call down MULE
-01:54 Depot
-01:58 Rally for Factory
-02:10 Factory
-02:18 Rally to Gas after this SCV
-02:22 Marines
-02:24 Bunker
-02:32 Refinery, Rally Back To Minerals
-02:39 Marines
-02:50 Rally to Gas
-02:53 OrbitalCommand
-02:56 Starport, Call Down Mule
-03:00 Window Mine, then Marines
-03:11 Depot
-03:14 Rally to Natural
-03:20 Widowmine, Marines
-03:34 Medivac, then Barracks
-03:42 First Barracks, Rally Main SCV
-03:50 Barracks, Factory Techlab, Depot, Marines
-04:00 Save Scans
-04:06 Factory Techlab
-04:09 Send Mine Drop, Ebay, then Refinery
-04:21 Depot
-04:28 Move Rax, Plus One Attack, Combat Shields, Stim
-04:47 Reactors
-04:57 Depot Depot Refinery
-05:08 Marauder Marine Depot Depot
-05:15 Stop Queing SCVs
-05:24 Saturate 4th Gas
-05:30 Marauder Marine Mine Medivac
-05:32 Rally SCV for Command Center
-05:42 Command Center, Depot, Depot
-05:53 Marauder Marine Mine Medivac
-06:04 Barracks Barracks
-06:15 Marauder Marine Mine
-06:22 Plus One Armor, Resume SCV Production
-06:28 Depot Depot
-06:45 Pick Up Second Drop
-06:54 Orbital, Techlab, Reactor
-07:30 Armory, Ghost Academy
-07:50 Ebay
-08:17 Two Two and Fourth Base
+0:17 Depot
+0:39 Barracks
+0:43 Refinery
+1:00 SCV on Refinery
+1:04 Mine Gas
+1:08 Rally SCV to scout
+1:27 Orbital, Marine
+1:41 Command Center, Move SCV for Factory
+1:55 Factory
+2:02 Reactor, Rally SCV to Ramp
+2:10 Depot
+2:20 Rally to Refinery then Refinery
+2:42 Swap Factory onto Reactor, Starport
+2:46 Hellions, TechLab
+2:54 Orbital Command
+3:07 Widow Mines
+3:19 Medivac
+3:23 Depot
+3:28 Widow Mines, Que SCVs
+3:35 Bunker, Depot as soon as you can
+3:51 Refinery, Swap Factory and Barracks
+4:07 Marine, Tank
+4:22 Two Depots
+4:26 Marines
+4:33 Raven
+4:44 Marine Tank
+4:58 Two Barracks, Depot
+5:02 Marines
+5:07 Refinery, Ebay
+5:18 Siege Tank
+5:22 Depot
+5:25 Marines
+5:17 Starport Reactor
+5:39 Command Center
+5:43 Marines
+5:46 Depot Depot
+5:48 Terran Infantry Weapons Level 1
+6:00 Factory Reactor
+6:01 Marauder, Marine
+6:03 Stimpack
+6:04 Combat Shield
+6:13 Two Barracks
+6:18 Medivacs
+6:20 Depot
+6:26 Marauder Marine
+6:39 Depot
+6:45 Marauder Marine Mine Medivac
+7:04 Barracks TechLab
+7:04 Barracks Reactor
+7:07 Marauder Marine Mine Medivac
+7:17 Orbital Command
+7:29 Marauder, Marine, Mine, Medivac
+7:38 Double Refinery
+7:40 Two More Depots
+7:52 Concussive Shells
+7:54 Marauder Marine Mine Medivac
+8:06 Terran Infantry Armor Level 1
+8:06 Depot Depot
+8:14 Missile Turrets
+8:27 Marauder, Marine, Mine Medivac
+8:55 GhostAcademy
+9:04 Medivacs
+9:29 Command Center
+9:31 Missile Turret
+9:31 Enhanced Shockwaves
+9:57 Armory
+9:58 Ebay
+11:40 Terran Infantry Weapons Level 2
+11:41 Terran Ship Weapons Level 1
+11:41 Terran Infantry Armor Level 2
+11:52 Barracks
+11:53 Barracks
+11:53 Barracks
+12:35 Command Center
+12:37 Personal Cloaking
+12:40 BarracksTechLab
+12:40 BarracksTechLab
+12:41 BarracksTechLab
+13:22 Starport
+13:24 FusionCore

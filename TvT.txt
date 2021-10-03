@@ -1,27 +1,61 @@
-00:17 Depot and rally to gas
-00:27 Gas
-00:44 Barracks
-00:56 Gas
-01:34 Factory, 3 off gas, depot
-01:50 Queue Reaper, Rally back to gas after one SCV
-02:18 Hellion
-02:27 Command Center
-02:33 Depot
-02:36 Reactor, Techlab, Ready SCV to make Starport
-02:51 Starport
-03:00 Cyclone, Rally SCV to make 3rd Gas
-03:12 Marines
-03:21 Gas
-03:30 Swap Starport and Factory
-03:40 Raven, Marines, Orbital, Techlab, Depot
-04:02 Seige Tank
-04:16 Depot
-04:22 Raven, Marines, Tank
-04:38 Depot, Ready SCV to make CC
-05:00 Third CC, Depot, Swap Starport and Barracks
-05:30 After Vikings, Depot, Gas, Barracks Barracks 
-06:12 Third CC Orbital, Barracks Barracks, Depot, Depot, Reactors, e-bays
-07:00 Reactors on Barracks, 1-1
-07:16 4th CC, then three more depots
-07:30 Gasses at Third
-08:00 Factory, Armory
+0:16 Depot
+0:40 Barracks
+0:44 Refinery
+0:50 Rally SCV to Gas
+0:56 Refinery
+1:27 Reaper
+1:27 Orbital
+1:30 Depot
+1:33 SCVs off of Gas at 80 Gas
+1:42 Factory
+1:59 Reaper
+2:00 Rally SCV to make Command Centera
+2:15 Command Center then Rally to Gasses
+2:27 Hellion
+2:31 Reactor
+2:32 Rally SCV for Starport
+2:37 Starport
+2:40 Rally SCV for Depot
+2:46 Depot
+2:48 TechLab
+3:07 Tank, Marine
+3:22 Medivac
+3:26 Orbital
+3:32 Marines
+3:33 Rally SCV for Refinery
+3:39 Refinery
+3:45 Cyclone
+3:50 Depot
+3:57 TechLab, Pickup Drop
+3:58 Marines
+4:13 Depot
+4:16 Marines
+4:20 Raven
+4:34 Tank
+4:34 Marines
+4:35 Depot
+4:37 next SCV from main rallied to make CC
+4:50 Command Center
+4:57 Depot
+5:03 Marines
+5:03 Raven, then 4th Refinery
+5:13 Tank
+5:21 Depot
+5:21 Marines
+5:25 Depot
+5:30 Fill Gas
+5:44 Two Barracks
+5:47 Tank
+5:48 Swap Starport and Barracks
+5:52 Depot
+5:55 Vikings then Stim
+6:04 Orbital
+6:07 Double Ebay
+6:19 Tank
+6:25 Vikings
+6:31 Orbital
+6:34 Reactors
+6:36 Marines, Lift Third
+6:42 Two Depots and 1-1
+7:03 Two Barracks
+7:08 Double Refinery
