@@ -9,7 +9,7 @@ import socket
 from system_hotkey import SystemHotkey
 
 forward_looking = 2 # number of seconds before in-game timer to speak sentence
-voice_volume = 1.0 # 0 to 1 for volume for TTS voice
+voice_volume = 0.5 # 0 to 1 for volume for TTS voice
 self_names = set(line.strip() for line in open('player_names.txt'))
 bo_files = list(line.strip() for line in open('build_order_files.txt'))
 
