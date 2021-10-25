@@ -1,15 +1,24 @@
+#!/usr/bin/python3
+
+from sys import platform
 import threading
 import math
-import pyttsx3
 import time
 import queue
 import random
 import json
 import socket
-
+import hashlib
+import os
 from system_hotkey import SystemHotkey
 
 import keyboard
+
+if platform =='win32':
+    import pyttsx3
+else:
+    import gtts
+    from playsound import playsound
 
 self_names = set(line.strip() for line in open('player_names.txt'))
 bo_files = list(line.strip() for line in open('build_order_files.txt'))
@@ -101,31 +110,59 @@ def game_state():
     gs.type = data['players'][player_index]["type"][0]
     return gs
 
-class TTSThread(threading.Thread):
-    def __init__(self):
-        self.tts_queue = queue.Queue()
-        self.done = False
-        super().__init__()
-    def kill(self):
-        self.done=True
-    def say(self, text):
-        print("Say: " + text)
-        self.tts_queue.put(text)
-    def run(self):
-        tts_engine = pyttsx3.init()
-        tts_engine.setProperty('voice',tts_engine.getProperty('voices')[1].id)
-        tts_engine.setProperty('volume',1.0)
-        tts_engine.startLoop(False)
-        while True:
-            if self.done:
-                break
-            if self.tts_queue.empty():
-                tts_engine.iterate()
-                time.sleep(0.1)
-            else:
-                data = self.tts_queue.get()
-                tts_engine.say(data)
-        tts_engine.endLoop()
+if platform == 'win32':
+    class TTSThread(threading.Thread):
+        def __init__(self):
+            self.tts_queue = queue.Queue()
+            self.done = False
+            super().__init__()
+        def kill(self):
+            self.done=True
+        def say(self, text):
+            print("Say: " + text)
+            self.tts_queue.put(text)
+        def run(self):
+            tts_engine = pyttsx3.init()
+            if platform == "win32":
+                tts_engine.setProperty('voice',tts_engine.getProperty('voices')[1].id)
+            tts_engine.setProperty('volume',1.0)
+            tts_engine.startLoop(False)
+            while True:
+                if self.done:
+                    break
+                if self.tts_queue.empty():
+                    tts_engine.iterate()
+                    time.sleep(0.1)
+                else:
+                    data = self.tts_queue.get()
+                    tts_engine.say(data)
+            tts_engine.endLoop()
+else:
+    class TTSThread(threading.Thread):
+        def __init__(self):
+            self.tts_queue = queue.Queue()
+            self.done = False
+            super().__init__()
+        def kill(self):
+            self.done=True
+        def say(self, text):
+            print("Say: " + text)
+            self.tts_queue.put(text)
+        def run(self):
+            while True:
+                if self.done:
+                    break
+                if self.tts_queue.empty():
+                    time.sleep(0.1)
+                else:
+                    text = self.tts_queue.get()
+                    filename = "tts/" + hashlib.sha256(text.encode()).hexdigest() + ".mp3"
+                    if not os.path.exists("tts"):
+                        os.makedirs("tts")
+                    if not os.path.exists(filename):
+                        tts = gtts.gTTS(text)
+                        tts.save(filename)
+                    playsound(filename)
 
 class Monitor(threading.Thread):
     def __init__(self):
