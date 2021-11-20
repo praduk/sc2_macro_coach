@@ -167,7 +167,9 @@ def parse_events(file, offset=0):
                 desc = s[1].strip()
                 ret[time] = desc
     except:
+        print("Exception!")
         pass
+    print(ret)
     return ret
 
 m = Monitor()

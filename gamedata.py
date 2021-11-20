@@ -10,15 +10,21 @@ import json
 import socket
 import hashlib
 import os
+from overlay import Overlay
 from system_hotkey import SystemHotkey
 
 import keyboard
 
-if platform =='win32':
+#if platform =='win32':
+if False:
     import pyttsx3
 else:
     import gtts
-    from playsound import playsound
+    #from playsound import playsound
+    #from pygame import mixer
+    #mixer.pre_init(44100, 16, 2, 4096) 
+    #mixer.init()
+    from audioplayer import AudioPlayer
 
 self_names = set(line.strip() for line in open('player_names.txt'))
 bo_files = list(line.strip() for line in open('build_order_files.txt'))
@@ -29,11 +35,21 @@ print(self_names)
 print("Build Order Files vs [T, Z, P, R]:")
 print(bo_files)
 
+
 def timer_string(timer_seconds):
+    timer_seconds = int(timer_seconds)
     if timer_seconds>0:
-        return str(timer_seconds//60) + ":" + str(timer_seconds%60)
+        return str(timer_seconds//60).zfill(2) + ":" + str(timer_seconds%60).zfill(2)
     else:
         return "99:99"
+
+def dtimer_string(timer_seconds):
+    timer_seconds = int(timer_seconds)
+    if timer_seconds>=0:
+        return " " + str(timer_seconds//60).zfill(2) + ":" + str(timer_seconds%60).zfill(2)
+    else:
+        timer_seconds = -timer_seconds
+        return "-" + str(timer_seconds//60).zfill(2) + ":" + str(timer_seconds%60).zfill(2)
 
 def timer_seconds(timer_string,last_time=0):
     s = timer_string.split(':')
@@ -110,7 +126,8 @@ def game_state():
     gs.type = data['players'][player_index]["type"][0]
     return gs
 
-if platform == 'win32':
+#if platform == 'win32':
+if platform == False:
     class TTSThread(threading.Thread):
         def __init__(self):
             self.tts_queue = queue.Queue()
@@ -123,7 +140,8 @@ if platform == 'win32':
             self.tts_queue.put(text)
         def run(self):
             tts_engine = pyttsx3.init()
-            if platform == "win32":
+            #if platform == "win32":
+            if False:
                 tts_engine.setProperty('voice',tts_engine.getProperty('voices')[1].id)
             tts_engine.setProperty('volume',1.0)
             tts_engine.startLoop(False)
@@ -156,14 +174,23 @@ else:
                     time.sleep(0.1)
                 else:
                     text = self.tts_queue.get()
-                    filename = "tts/" + hashlib.sha256(text.encode()).hexdigest() + ".mp3"
+                    filename = "tts\\" + hashlib.sha256(text.encode()).hexdigest() + ".mp3"
                     if not os.path.exists("tts"):
                         os.makedirs("tts")
                     if not os.path.exists(filename):
                         tts = gtts.gTTS(text)
                         tts.save(filename)
-                    playsound(filename)
+                    if os.path.exists(filename):
+                        #playsound(filename)
+                        #mixer.init()
+                        #mixer.music.load(filename)
+                        #mixer.music.play()
+                        #mixer.Sound(os.getcwd() + "\\" + filename).play()
+                        ap = AudioPlayer(filename)
+                        ap.volume = 25
+                        ap.play(block=True)
 
+ol = Overlay()
 class Monitor(threading.Thread):
     def __init__(self):
         self.tts = TTSThread()
@@ -171,36 +198,58 @@ class Monitor(threading.Thread):
         self.last_t = -1
         self.tts.daemon = True
         self.tts.start()
+        super().__init__()
     def __del__(self):
         self.tts.kill()
     def tick(self):
         gs = game_state()
         if not gs.in_game:
         #if not gs.in_game or gs.is_replay:
+            ol.set("-")
             self.last_t = -1
             return
         if self.last_t < 0:
             # Load Events
             if gs.race == "T":
+                ol.set("Terran")
                 m.events = parse_events(bo_files[0])
             elif gs.race == "Z":
+                ol.set("Zerg")
                 m.events = parse_events(bo_files[1])
             elif gs.race == "P":
+                ol.set("Protoss")
                 m.events = parse_events(bo_files[2])
             elif gs.race == "R":
+                ol.set("Random")
                 m.events = parse_events(bo_files[3])
 
             # Player Introductions
             notes = player_notes(gs.player, gs.type)
             if notes:
                 self.tts.say("opponent likes " + notes)
+                ol.set(ol.get() + "\n" + gs.player + ": " + notes)
+
 
         if gs.t > self.last_t:
-            forward_looking = 2
+            forward_looking = 4
             ft = gs.t + forward_looking
             if ft in self.events:
+                
                 self.tts.say(self.events[ft])
 
+
+        # Overlay
+        num_next_steps = 10
+        num_prev_steps = 2
+        ol_str = ""
+        for t in range(int(gs.t)-num_prev_steps, int(gs.t)+num_next_steps):
+            if t in self.events:
+                dt = int(t - gs.t)
+                ol_str = ol_str + dtimer_string(dt) + " " + self.events[t] + "\n"
+            #else:
+            #    dt = int(t - gs.t)
+            #    ol_str = ol_str + dtimer_string(dt) + "\n"
+        ol.set(ol_str)
         self.last_t = gs.t
 
 def parse_events(file, offset=0):
@@ -214,6 +263,7 @@ def parse_events(file, offset=0):
                 desc = s[1].strip()
                 ret[time] = desc
     except:
+        print("parse_events: EXCEPTION!")
         pass
     return ret
 
@@ -235,23 +285,31 @@ def stop_program(args):
     global stop
     print("Stop")
     m.tts.kill()
+    ol.root.destroy()
     stop = True
+    print('Stopped')
 
 
 def zerg(args):
     #print("Zerg")
     m.tts.say("Zerg")
-    m.events = parse_events("TvZ.txt")
+    #m.events = parse_events("TvZ.txt")
+    bo_files = list(line.strip() for line in open('build_order_files.txt'))
+    m.events = parse_events(bo_files[1])
 
 def terran(args):
     #print("Terran")
     m.tts.say("Terran")
-    m.events = parse_events("TvT.txt")
+    #m.events = parse_events("TvT.txt")
+    bo_files = list(line.strip() for line in open('build_order_files.txt'))
+    m.events = parse_events(bo_files[0])
 
 def protoss(args):
     #print("Protoss")
     m.tts.say("Protoss")
-    m.events = parse_events("TvP.txt")
+    #m.events = parse_events("TvP.txt")
+    bo_files = list(line.strip() for line in open('build_order_files.txt'))
+    m.events = parse_events(bo_files[2])
 
 def none(args):
     #print("None")
@@ -270,7 +328,17 @@ hk.register(('control','shift','b'), callback=stop_program)
 hk.register(('control','shift','v'), callback=none)
 
 #keyboard.add_hotkey('s', scv_production)
-while not stop:
+
+#while not stop:
+#    m.tick()
+#    time.sleep(0.1)
+
+def main_function():
     m.tick()
-    time.sleep(0.1)
+    ol.root.after(100,main_function)
+main_function()
+
+ol.root.bind('<Control-c>', quit)
+ol.run()
+
 print("Stopped")

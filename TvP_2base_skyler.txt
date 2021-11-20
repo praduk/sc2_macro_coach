@@ -1,0 +1,48 @@
+0:17 Depot
+0:40 Barracks
+0:45 Refinery
+1:26 Marine
+1:27 Orbital Command
+1:44 CommandCenter
+1:44 Reactor on Barracks
+2:00 Barracks
+2:06 Depot
+2:20 Factory
+2:25 Refinery
+2:29 Marines
+2:46 TechLab on Barracks
+2:47 Marines
+2:57 Orbital Command
+3:05 Marines
+3:05 TechLab on Factory
+3:13 Stimpack
+3:16 Orbital Command
+3:23 Marines
+3:28 Siege Tank
+3:31 Marines
+3:41 Starport
+3:43 Marines
+3:56 Depot
+4:04 Marines
+4:12 Tank
+4:21 Depot, Depot
+4:23 Medivac
+4:30 Marines
+4:45 Depot
+4:48 Marines
+4:54 Siege Tank
+5:13 Medivac
+5:17 Combat Shield
+5:18 Marines
+5:49 Medivac
+5:51 Barracks
+5:53 Marines
+6:01 Siege Tank
+6:11 Marines
+6:18 Refinery
+6:18 EngineeringBay
+6:19 Marines
+6:40 Siege Tank
+6:47 Marines
+7:12 Siege Tank
+7:12 Marines

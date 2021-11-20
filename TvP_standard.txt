@@ -1,7 +1,8 @@
 00:17 SupplyDepot
 00:39 Barracks
 00:43 Refinery
-01:05 Mine gas, Rally scout
+00:53 Rally SCV to building Refinery
+01:07 Rally scout
 01:27 Orbital, Marine
 01:41 CommandCenter
 01:45 Reactor
@@ -11,7 +12,7 @@
 01:54 Depot
 01:58 Rally for Factory
 02:10 Factory
-02:18 Rally to Gas after this SCV
+02:18 After this SCV, Rally to Gas 
 02:22 Marines
 02:24 Bunker
 02:32 Refinery, Rally Back To Minerals
@@ -19,10 +20,10 @@
 02:50 Rally to Gas
 02:53 OrbitalCommand
 02:56 Starport, Call Down Mule
-03:00 Window Mine, then Marines
+03:00 Widow Mine, then Marines
 03:11 Depot
 03:14 Rally to Natural
-03:20 Widowmine, Marines
+03:20 Widow Mine, Marines
 03:34 Medivac, then Barracks
 03:42 First Barracks, Rally Main SCV
 03:50 Barracks, Factory Techlab, Depot, Marines
