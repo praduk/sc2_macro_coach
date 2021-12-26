@@ -1,10 +1,12 @@
 0:16 Depot
+0:39 !scv_sync
 0:40 Barracks
 0:44 Refinery
 0:50 Rally SCV to Gas
 0:56 Refinery
 1:27 Reaper
 1:27 Orbital
+1:28 !orbital
 1:30 Depot
 1:33 SCVs off of Gas at 80 Gas
 1:42 Factory

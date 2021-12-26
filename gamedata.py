@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from re import I
 from sys import platform
 import threading
 import math
@@ -10,8 +11,10 @@ import json
 import socket
 import hashlib
 import os
+import collections
 from overlay import Overlay
 from system_hotkey import SystemHotkey
+from datetime import datetime
 
 import keyboard
 
@@ -28,6 +31,16 @@ else:
 
 self_names = set(line.strip() for line in open('player_names.txt'))
 bo_files = list(line.strip() for line in open('build_order_files.txt'))
+
+#enable_overlay = True
+enable_overlay = False
+enable_timer = True
+enable_in_replay = True
+
+made_scv = False
+time_of_1 = datetime.now()
+made_orbital = False
+
 
 print("Self Names:")
 print(self_names)
@@ -83,13 +96,14 @@ class GameState:
         self.race = ""
         self.type = ""
 
+game_time_buffer = collections.deque(maxlen=10)
 def game_state():
     gs = GameState()
 
     s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     s.connect(('localhost',6119))
     s.sendall(b"GET /ui HTTP/1.1\nHost: localhost\n\n")
-    s.recv(4096) # remove headera
+    s.recv(4096) # remove headers
     raw = s.recv(4096).decode()
     data = json.loads(raw)
 
@@ -124,6 +138,16 @@ def game_state():
     gs.player = data['players'][player_index]["name"]
     gs.race = data['players'][player_index]["race"][0].upper()
     gs.type = data['players'][player_index]["type"][0]
+
+    # adjust gs.t
+    global game_time_buffer
+    if gs.t==0:
+        for i in range(0,10):
+            game_time_buffer.append(0)
+    game_time_buffer.append(gs.t)
+    gs.tf = sum(game_time_buffer)/len(game_time_buffer) + 0.5
+    gs.t = int(math.floor(gs.tf))
+
     return gs
 
 #if platform == 'win32':
@@ -198,59 +222,193 @@ class Monitor(threading.Thread):
         self.last_t = -1
         self.tts.daemon = True
         self.tts.start()
+        self.scv_sync = 0
+        self.last_scv = 1
         super().__init__()
     def __del__(self):
         self.tts.kill()
+
+    def process_command(self, command, gs):
+        if command=="scv_sync":
+            self.scv_sync = gs.t
+        elif command=="orbital":
+            self.scv_sync = gs.t + 24
+        elif command.startswith("stop_scv_until"):
+            s = command.split(" ",maxsplit=1)
+            time = timer_seconds(s[1].strip())
+            self.scv_sync = time
+
+    def init(self):
+        ol.set_top("")
+        ol.set("")
+        self.last_t = -1
+        made_scv = False
+        self.last_scv = 0
+        self.scv_sync = 0
+        self.scv_warning = False
+        ol.set_border()
+        ol.set_progress()
+
+
     def tick(self):
+        global made_scv
+        global made_orbital
+        
+        global enable_overlay
+
         gs = game_state()
-        if not gs.in_game:
-        #if not gs.in_game or gs.is_replay:
-            ol.set("-")
-            self.last_t = -1
+        #if not gs.in_game:
+        global enable_in_replay
+        if not gs.in_game or ((not enable_in_replay) and gs.is_replay):
+            self.init()
             return
         if self.last_t < 0:
             # Load Events
             if gs.race == "T":
-                ol.set("Terran")
+                #ol.set("Terran")
                 m.events = parse_events(bo_files[0])
             elif gs.race == "Z":
-                ol.set("Zerg")
+                #ol.set("Zerg")
                 m.events = parse_events(bo_files[1])
             elif gs.race == "P":
-                ol.set("Protoss")
+                #ol.set("Protoss")
                 m.events = parse_events(bo_files[2])
             elif gs.race == "R":
-                ol.set("Random")
+                #ol.set("Random")
                 m.events = parse_events(bo_files[3])
+            self.init()
 
             # Player Introductions
             notes = player_notes(gs.player, gs.type)
             if notes:
                 self.tts.say("opponent likes " + notes)
-                ol.set(ol.get() + "\n" + gs.player + ": " + notes)
+                if enable_overlay:
+                    ol.set(ol.get() + "\n" + gs.player + ": " + notes)
 
 
         if gs.t > self.last_t:
             forward_looking = 4
             ft = gs.t + forward_looking
             if ft in self.events:
-                
-                self.tts.say(self.events[ft])
-
+                data = self.events[ft]
+                if data[0] != '!':
+                    self.tts.say(self.events[ft])
+            if gs.t in self.events:
+                data = self.events[gs.t]
+                if data[0] == '!':
+                    self.process_command(data[1:], gs)
 
         # Overlay
-        num_next_steps = 10
-        num_prev_steps = 2
+        num_next_steps = 30
+        num_prev_steps = 0
         ol_str = ""
-        for t in range(int(gs.t)-num_prev_steps, int(gs.t)+num_next_steps):
-            if t in self.events:
-                dt = int(t - gs.t)
-                ol_str = ol_str + dtimer_string(dt) + " " + self.events[t] + "\n"
+        count = 0
+
+        if enable_overlay:
+            for t in range(gs.t-num_prev_steps, gs.t+num_next_steps):
+                if t in self.events:
+                    dt = int(t - gs.t)
+                    ol_str = dtimer_string(dt) + " " + self.events[t] + "\n"
+                    if dt < 1:
+                        ol.set(ol_str,'red')
+                    elif dt < 2:
+                        ol.set(ol_str,'orange')
+                    elif dt < 3:
+                        ol.set(ol_str,'yellow')
+                    else:
+                        ol.set(ol_str)
+                    break
+        
+
+        if made_scv:
+            self.last_scv = gs.t
+            made_scv = False
+
+        if self.last_scv>=0 and gs.t >= self.scv_sync:
+            cycle = (gs.t - self.scv_sync) % 12
+            cyclef = (gs.tf - self.scv_sync) % 12
+            #if cycle==0:
+            #    cycle = 12
+
+            on_time = (gs.t - cycle - self.last_scv) <= 6
+            late = (gs.t - cycle - self.last_scv) >= 18
+
+            if gs.is_replay:
+                on_time = True
+                late = False
+            
+            if on_time:
+                self.scv_warning = False
+
+            lcolor = 'green'
+            rcolor = 'yellow'
+            if not on_time:
+                lcolor = 'yellow'
+                rcolor = 'red'
+            if late:
+                lcolor = 'red'
+                rcolor = 'firebrick'
+            #if late:
+            #    if int(10*gs.tf)%2==0:
+            #        lcolor = 'red'
+            #        rcolor = 'orange'
+            #    else:
+            #        lcolor = 'orange'
+            #        rcolor = 'red'
+            #    if not self.scv_warning:
+            #        self.scv_warning = True
+            #        #self.tts.say("SCV Warning")
+            #    ol.set_border(12,lcolor)
             #else:
-            #    dt = int(t - gs.t)
-            #    ol_str = ol_str + dtimer_string(dt) + "\n"
-        ol.set(ol_str)
+            #    ol.set_border(0,lcolor)
+            #ol.set_progress(1.0-(cyclef/12.0),lcolor,rcolor)
+            ol.set_progress((cyclef/12.0),rcolor,lcolor)
+        else:
+            ol.set_progress()
+            ol.set_border()
+
+
+
+        #if enable_timer and last_scv > 0:
+        #    dt = int(last_scv + 12 - gs.t)
+        #    if dt%2==0:
+        #        flash_color = 'red'
+        #    else:
+        #        flash_color = 'orange'
+
+        #    #ol_str = str(dt)
+        #    #if dt < -12:
+        #    #    ol.set_top("One",flash_color)
+        #    #    ol.set_border(24,flash_color)
+        #    #elif dt <= 0:
+        #    #    ol.set_top(ol_str,flash_color)
+        #    #    ol.set_border(12-1*dt,flash_color)
+        #    #else:
+        #    #    ol.set_top(ol_str)
+        #    #    ol.set_border()
+
+        #    if dt>=0:
+        #        ol.set_progress(dt/12,'green','yellow')
+        #    elif dt>=-12:
+        #        ol.set_progress(-dt/12,'red','yellow')
+        #    else:
+        #        ol.set_progress(1,flash_color)
+        #else:
+        #    #ol.set_top('')
+        #    ol.set_progress(0)
+
+
+
+        #if not enable_overlay:
+        #    ol.set("")
+        #global enable_timer
+        #if not enable_timer:
+        #    ol.set_top("")
+        
+        
         self.last_t = gs.t
+
+        
 
 def parse_events(file, offset=0):
     ret = {}
@@ -316,6 +474,10 @@ def none(args):
     m.tts.say("None")
     m.events = {}
 
+def overlay_toggle(args):
+    global enable_overlay
+    enable_overlay = not enable_overlay
+
 #def scv_production():
 #    #print("SCV Hotkey")
 #    m.hit_scv_hotkey()
@@ -326,6 +488,32 @@ hk.register(('control','shift','x'), callback=terran)
 hk.register(('control','shift','c'), callback=protoss)
 hk.register(('control','shift','b'), callback=stop_program)
 hk.register(('control','shift','v'), callback=none)
+hk.register(('control','shift','f'), callback=overlay_toggle)
+
+def hit_1(args):
+    global time_of_1
+    time_of_1 = datetime.now()
+    #ol.set_top("Hit 1")
+def hit_s(args):
+    global made_scv
+    global time_of_1
+    if (datetime.now()-time_of_1).total_seconds() < 0.75:
+        time_of_1 = datetime.now()
+        made_scv = True
+        #ol.set_top("Made SCV")
+def hit_b(args):
+    global made_orbital
+    made_orbital = True
+
+keyboard.on_release_key('1', hit_1)
+keyboard.on_release_key('s', hit_s)
+keyboard.on_release_key('b', hit_b)
+
+#def made_scv_callback():
+#    global made_scv
+#    made_scv = True
+#    ol.set_top("Made SCV")
+#keyboard.add_hotkey('1, s', made_scv_callback)
 
 #keyboard.add_hotkey('s', scv_production)
 

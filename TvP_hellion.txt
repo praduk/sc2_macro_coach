@@ -1,10 +1,12 @@
 0:17 Depot
-0:39 Barracks
+0:39 !scv_sync
+0:40 Barracks
 0:43 Refinery
 1:00 SCV on Refinery
 1:04 Mine Gas
 1:08 Rally SCV to scout
 1:27 Orbital, Marine
+1:28 !scv_sync
 1:41 Command Center, Move SCV for Factory
 1:55 Factory
 2:02 Reactor, Rally SCV to Ramp

@@ -1,8 +1,10 @@
 00:17 Depot
-00:39 Barracks
+00:39 !scv_sync
+00:40 Barracks
 00:44 Refinery
 01:05 3x Mine gas
 01:27 OrbitalCommand, Reaper
+01:28 !orbital
 01:38 CommandCenter
 01:46 Depot
 01:54 Queue Marine

@@ -1,8 +1,10 @@
 0:17 Depot
+0:39 !scv_sync
 0:40 Barracks
 0:45 Refinery
 1:26 Marine
 1:27 Orbital Command
+1:28 !orbital
 1:44 CommandCenter
 1:44 Reactor on Barracks
 2:00 Barracks

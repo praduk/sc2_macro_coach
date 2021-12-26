@@ -1,37 +1,43 @@
+00:14 Rally SCV to "exit" depot
 00:17 SupplyDepot
-00:39 Barracks
+00:39 !scv_sync
+00:40 Barracks
 00:43 Refinery
 00:53 Rally SCV to building Refinery
 01:07 Rally scout
 01:27 Orbital, Marine
+01:28 !orbital
 01:41 CommandCenter
 01:45 Reactor
 01:48 Ready SCV to Make Depot
 01:50 Micro Scouting SCV
 01:53 Call down MULE
-01:54 Depot
+01:56 Depot
 01:58 Rally for Factory
-02:10 Factory
+02:09 Factory
 02:18 After this SCV, Rally to Gas 
-02:22 Marines
-02:24 Bunker
-02:32 Refinery, Rally Back To Minerals
+02:22 Marines and Bunker
+02:31 Refinery, Rally Back To Minerals
 02:39 Marines
-02:50 Rally to Gas
-02:53 OrbitalCommand
+02:47 Rally to Gas
+02:52 Orbital Command
 02:56 Starport, Call Down Mule
 03:00 Widow Mine, then Marines
-03:11 Depot
-03:14 Rally to Natural
-03:20 Widow Mine, Marines
-03:34 Medivac, then Barracks
-03:42 First Barracks, Rally Main SCV
-03:50 Barracks, Factory Techlab, Depot, Marines
+03:08 Marines, Rally to Natural
+03:13 Depot
+03:21 Widow Mine
+03:25 Marines
+03:34 Medivac, Rally for Barracks
+03:42 First Barracks
+03:44 Rally for Depot
+03:48 Barracks, Factory Techlab
+03:57 Depot then Marines
 04:00 Save Scans
-04:06 Factory Techlab
-04:09 Send Mine Drop, Ebay, then Refinery
-04:21 Depot
-04:28 Move Rax, Plus One Attack, Combat Shields, Stim
+04:06 Send Mine Drop, then Techlab, Ebay, Refinery
+04:17 Marines, Boost Medivac
+04:26 Depot
+04:28 Move Rax, Plus One, Stim, Shields, Fill Refinery
+04:35 Marines
 04:47 Reactors
 04:57 Depot Depot Refinery
 05:08 Marauder Marine Depot Depot
