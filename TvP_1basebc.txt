@@ -1,0 +1,37 @@
+0:19 Supply Depot
+0:20 Rally to Gas
+0:28 Refinery  
+0:39 !scv_sync
+0:45 Barracks  
+1:33 Marine  
+1:35 Factory
+1:42 Orbital Command  
+1:43 !orbital
+1:45 Supply Depot
+1:51 Marine  
+2:00 Refinery  
+2:08 Marine  
+2:18 Proxy Starport
+2:19 Hellion  
+2:28 Barracks Reactor  
+2:35 Supply Depot  
+2:40 Hellion
+2:55 !stop_scv_until 99:99
+2:56 Medivac  
+3:02 Hellion  
+3:05 Marines
+3:10 Fusion Core  
+3:14 Supply Depot  
+3:30 Send out 3 hellion medivac drop, float factory to main
+3:35 Starport Tech Lab  
+3:38 Supply Depot  
+3:50 Widow Mine  
+3:51 Supply Depot  
+4:02 Hellion drop harrass
+4:17 Battlecruiser  
+4:21 Factory Tech Lab  
+4:36 Barracks  
+4:42 Siege Tank  
+4:50 Two More Barracks
+5:15 Siege Tank  
+5:50 Move Out and Harass with BC

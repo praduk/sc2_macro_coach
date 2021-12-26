@@ -1,0 +1,31 @@
+0:14 Rally SCV to "exit" depot
+0:17 SupplyDepot
+0:39 !scv_sync
+0:40 Barracks
+0:43 Refinery
+0:53 Rally SCV to building Refinery
+1:07 Rally scout
+1:27 Orbital, Marine
+1:28 !orbital
+1:41 CommandCenter
+1:45 Reactor
+1:48 Ready SCV to Make Depot
+1:50 Micro Scouting SCV
+1:53 Call down MULE
+1:56 Depot
+2:09 Proxy Factory
+2:21 Marines
+2:28 Bunker
+2:36 Rally for Barracks
+2:39 Marines
+2:42 Barracks
+2:52 Hellion
+2:58 Orbital Command
+3:03 Marines
+3:18 Hellion
+3:21 SupplyDepot
+3:32 BarracksTechLab
+3:33 Marines
+3:37 Barracks
+3:41 Widow Mine
+3:49 EngineeringBay
