@@ -1,0 +1,53 @@
+00:14 Rally SCV to "exit" depot
+00:17 Depot
+00:39 !scv_sync
+00:40 Barracks
+00:43 Refinery
+00:53 Rally SCV to building Refinery
+01:07 Rally scout
+01:27 Orbital, Reaper
+01:28 !orbital
+01:41 Command Center
+01:55 Depot
+01:59 Marine
+02:11 Factory
+02:18 Refinery
+02:22 Reactor, Rally for Bunker
+02:38 Bunker
+02:56 Orbital Command
+02:58 Starport
+03:07 Widow Mine
+03:32 Widow Mine
+03:37 Medivac
+03:53 Widow Mine
+03:57 Depots
+04:12 StarportTechLab
+04:16 FactoryTechLab
+04:23 Depot
+04:30 Raven
+04:36 Siege Tank
+04:41 Two Barracks
+04:47 Depot, Refinery, Ebay
+05:12 Lift Factory and Starport, then Refinery
+05:24 Plus 1 Attack
+05:26 Two Depots
+05:26 FactoryTechLab
+05:31 StarportReactor
+05:42 Depot Depot
+05:46 Siege Tank
+05:53 Stimpack
+05:54 Combat Shield
+06:02 CommandCenter
+06:07 Depot
+06:27 Depot
+06:35 Siege Tank
+06:41 Depot
+06:47 Two Barracks
+07:10 Siege Tank
+07:16 Depot
+07:28 3 Depots
+07:38 BarracksTechLab
+07:39 BarracksReactor
+07:39 Concussive Shells
+07:51 EngineeringBay
+07:54 Armory

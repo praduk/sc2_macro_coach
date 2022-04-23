@@ -1,4 +1,4 @@
-TvT_standard.txt
+TvT_tankdrop_test.txt
 TvZ_standard.txt
-TvP_standard.txt
+TvP_hdrop.txt
 TvR.txt

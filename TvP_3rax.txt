@@ -1,0 +1,50 @@
+0:17 Depot
+0:29 Rally To Gas
+0:39 !scv_sync
+0:40 Barracks
+0:43 Refinery
+0:54 Rally SCV to scout
+1:00 SCV on Refinery
+1:04 Mine Gas
+1:27 Orbital, Reactor
+1:28 !orbital
+1:39 CommandCenter, Take Two SCV Off Gas
+1:48 Depot
+2:04 Marines
+2:12 Barracks, Rally to Gas
+2:21 Marine, Reaper
+2:25 Barracks
+2:33 Refinery, Rally to Other Gas
+2:51 Orbital Command
+2:59 BarracksTechLab
+3:13 BarracksTechLab
+3:20 Stimpack
+3:34 Combat Shield
+3:45 Two Depots
+4:10 Depot
+4:16 EngineeringBay
+4:33 Bunker
+4:37 Depot
+4:43 Plus One Attack
+4:48 Start Marauder Production
+4:48 Marine
+5:01 Factory
+5:21 Concussive Shells
+5:25 Depot
+5:28 MissileTurret
+5:37 Depot
+5:45 Starport
+5:46 FactoryReactor
+5:59 CommandCenter
+6:08 Refinery
+6:10 Refinery
+6:15 Two Depots
+6:29 FactoryReactor
+6:36 Depot
+6:37 Medivacs
+6:48 Plus One Armor
+6:58 Two Barracks
+7:08 Medivacs
+7:08 Medivacs, Mines
+7:20 Orbital Command
+7:47 TechLab Reactor

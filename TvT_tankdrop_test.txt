@@ -1,0 +1,60 @@
+0:18 Depot
+0:40 !barracks
+0:43 Refinery
+0:53 Refinery
+1:27 !orbital
+1:28 Depot, Reaper
+1:30 Two Off of Gas at 78 Gas
+1:40 Factory
+2:00 Reaper
+2:15 CommandCenter
+2:18 Mine gas
+2:24 Hellion
+2:32 Barracks Reactor
+2:38 Starport
+2:47 Depot
+2:49 FactoryTechLab
+3:08 Siege Tank, Marines
+3:14 Medivac
+3:26 Mariness
+3:27 Orbital Command
+3:33 Refinery
+3:40 Cyclone
+3:45 Refinery
+3:47 StarportTechLab
+3:49 Marines
+3:54 Mine gas
+3:59 Two Depots
+4:06 Mine gas
+4:11 Raven
+4:21 Siege Tank
+4:25 Depot
+4:43 CommandCenter
+4:54 Raven
+4:54 Siege Tank
+4:54 Mine gas
+4:56 Marines
+5:03 Depot
+5:06 Depot
+5:13 Two Barracks
+5:20 Marines
+5:29 Siege Tank
+5:32 Depot
+5:39 Swap Barracks and Starport
+5:51 Stimpack
+5:51 Vikings
+5:54 Orbital Command
+6:01 Siege Tank
+6:03 Double Ebay
+6:07 Marine
+6:08 Barracks Reactors
+6:21 Vikings
+6:25 Marine
+6:25 Two Depots
+6:29 One-One
+6:37 Siege Tank
+6:40 Two Barracks
+6:51 Vikings
+6:54 Two Depots
+7:23 Command Center
+7:27 Barracks Reactors

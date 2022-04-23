@@ -1,0 +1,45 @@
+0:17 Depot
+0:39 !scv_sync
+0:40 Barracks
+0:43 Refinery
+0:54 Rally SCV to scout
+1:00 SCV on Refinery
+1:04 Mine Gas
+1:27 Orbital, Marine
+1:28 !orbital
+1:41 Command Center, Move SCV for Factory
+1:58 Factory, Rally SCV to Ramp
+2:02 Reactor
+2:10 Depot, Rally Next SCV for Refinery
+2:22 Refinery
+2:44 Swap Barracks and Factory, Techlab, Starport
+2:50 Hellions
+2:58 Orbital Command
+3:11 Hellions, Depot
+3:27 Medivac 
+3:30 Swap Barracks and Factory
+3:40 Tank, Marine
+3:57 Boost Medivac, Send Back Starport, Two Barracks
+4:10 Depot
+4:17 Tank, Marine
+4:38 Bunker, Ebay, Refinery
+4:55 Barracks TechLabs
+5:08 Depot
+5:11 Terran Infantry Weapons Level 1
+5:14 Stimpack, Combat Shield
+5:16 Starport Reactor
+5:28 Depot
+5:41 Factory Reactor
+6:05 Depot
+6:05 Marine, Medivac
+7:04 Concussive Shells
+7:14 Terran Infantry Armor Level 1
+7:21 Two Barracks
+7:21 Marine, Marauder, Mines
+7:35 Refinery
+7:35 Depot
+7:42 Marine, Marauder, Mine, Medivac
+8:22 BarracksTechLab
+8:26 Orbital Command
+8:34 Marine
+8:35 Armory
