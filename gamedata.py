@@ -236,6 +236,7 @@ class Monitor(threading.Thread):
         self.tts.kill()
 
     def process_command(self, command, gs, forward_looking):
+        print('Command : ' + command)
         if command=="scv_sync":
             if not forward_looking:
                 self.scv_sync = gs.t
@@ -312,7 +313,7 @@ class Monitor(threading.Thread):
                 if data[0] != '!':
                     self.tts.say(self.events[ft])
                 else:
-                    self.process_command(self.events[ft],gs,True)
+                    self.process_command(data[1:],gs,True)
             if gs.t in self.events:
                 data = self.events[gs.t]
                 if data[0] == '!':
@@ -338,7 +339,6 @@ class Monitor(threading.Thread):
                     else:
                         ol.set(ol_str)
                     break
-        
 
         if made_scv:
             self.last_scv = gs.t
