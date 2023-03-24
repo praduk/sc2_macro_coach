@@ -22,8 +22,6 @@
 3:12 Medivac
 3:26 Orbital, Marines, and Rally for Refinery
 3:31 Refinery
-3:06 SiegeTank
-3:31 Refinery
 3:38 Cyclone
 3:42 Refinery
 3:44 Starport TechLab

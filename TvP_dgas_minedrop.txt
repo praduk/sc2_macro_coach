@@ -1,0 +1,58 @@
+0:16 Depot
+0:40 !barracks
+0:44 Refinery
+0:50 Rally SCV to Gas
+0:56 Refinery
+1:27 Reaper
+1:28 !orbital
+1:30 Depot
+1:33 Two SCVs off of Gas at 78 Gas
+1:42 Factory
+1:59 Reaper
+2:00 Rally SCV to make Command Center
+2:15 Command Center then Rally to Gasses
+2:33 Starport
+2:36 Widow Mine
+2:46 Depot
+2:49 Marines
+3:08 Widow Mine
+3:09 Medivac
+3:13 Marines
+3:29 Factory Tech Lab
+3:30 Barracks
+3:35 Orbital Command
+3:42 Marines
+3:56 Raven
+3:56 Factory Tech Lab
+4:00 Marines
+4:07 Depot
+4:15 Refinery
+4:17 Siege Tank
+4:18 Marine
+4:22 EBay
+4:30 Depot
+4:47 Barracks
+4:49 Plus One
+4:49 Siege Tank
+4:51 Marines
+4:57 Stimpack
+5:08 Two Depots and Starport Reactor
+5:09 Marines
+5:34 Refinery
+5:38 Factory Reactor
+5:40 MissileTurret
+5:42 Combat Shield
+5:42 Marauders
+5:45 Depot
+5:48 Medivacs
+5:50 Marines
+6:04 Marauders
+6:10 Depot
+6:13 Marine
+6:17 Widow Mine
+6:17 Depot
+6:25 Marauders
+6:27 Depot
+6:32 Marine
+6:32 Medivacs
+6:33 Depot

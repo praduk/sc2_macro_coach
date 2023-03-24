@@ -1,0 +1,39 @@
+0:16 Depot
+0:39 !barracks
+0:44 Refinery
+0:50 Rally SCV to Gas
+0:56 Refinery
+1:27 Reaper
+1:28 !orbital
+1:30 Depot
+1:33 Two SCV off of Gas at 80 Gas
+1:42 Factory
+1:58 Reactor
+2:21 Command Center
+2:27 Hellion
+2:35 Reaper
+2:36 Depot
+2:38 Reaper
+2:49 Hellion
+2:57 Starport
+3:07 Marines
+3:10 Tech Lab
+3:25 Marines
+3:32 Siege Tank
+3:32 Orbital Command
+3:36 Medivac
+3:43 Marines
+3:44 Depot
+3:52 Refinery
+4:04 Cyclone
+4:05 Marines
+4:08 StarportTechLab
+4:19 Depot
+4:23 Marines
+4:39 Siege Tank
+4:40 Marines
+4:44 Depot
+4:46 Raven
+5:05 Depot
+5:11 Siege Tank
+5:32 Command Center

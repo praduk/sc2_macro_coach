@@ -1,0 +1,99 @@
+0:17 Depot
+0:39 !barracks
+0:42 Refinery
+0:52 Refinery
+1:26 Reaper
+1:27 !orbital
+1:40 Factory
+1:43 Depot
+1:58 Reaper
+2:15 Command Center
+2:24 Hellion
+2:35 Starport
+2:36 Barracks Reactor
+2:44 Depot
+2:51 Widow Mine
+3:13 Medivac
+3:14 Widow Mine
+3:17 Marine
+3:17 Marine
+3:28 Barracks
+3:32 Orbital Command
+3:36 Factory Tech Lab
+3:37 Marine
+3:37 Marine
+3:44 Starport Tech Lab
+3:49 EngineeringBay
+3:55 Siege Tank
+4:05 Depot
+4:10 Raven
+4:14 Marine
+4:14 Marine
+4:35 Terran Infantry Weapons Level 1
+4:37 Barracks
+4:42 Marine
+4:42 Marine
+4:43 Refinery
+4:44 Marine
+4:50 Depot
+4:51 Stimpack
+4:57 Depot
+5:00 Marine
+5:04 Marine
+5:06 Factory Reactor
+5:06 Starport Reactor
+5:12 Marauder
+5:18 Marine
+5:21 Marine
+5:24 Depot
+5:30 Barracks
+5:30 Barracks
+5:32 Marauder
+5:32 Combat Shield
+5:39 Refinery
+5:40 Marauder
+5:47 Widow Mine
+5:47 Widow Mine
+5:52 Depot
+5:52 Marine
+5:53 Marine
+5:54 Marine
+5:56 Medivac
+5:59 Medivac
+6:06 Marauder
+6:12 Marauder
+6:14 Depot
+6:14 Widow Mine
+6:14 Widow Mine
+6:15 Depot
+6:18 Marine
+6:18 Marine
+6:18 Marine
+6:18 Marine
+6:26 Depot
+6:35 Medivac
+6:35 Medivac
+6:36 Marauder
+6:36 Marauder
+6:36 Marine
+6:36 Marine
+6:41 Concussive Shells
+6:42 Marine
+6:42 Marine
+6:44 Depot
+6:54 Marine
+6:54 Marine
+6:56 Widow Mine
+6:56 Widow Mine
+6:57 Marauder
+6:57 Marauder
+7:01 Marine
+7:13 Marine
+7:13 Marine
+7:18 Marauder
+7:21 Marauder
+7:31 Marine
+7:31 Marine
+7:39 Marine
+8:03 Marine
+8:05 Marine

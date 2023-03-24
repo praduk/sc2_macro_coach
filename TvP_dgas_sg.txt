@@ -1,0 +1,46 @@
+0:16 Depot
+0:39 !barracks
+0:44 Refinery
+0:50 Rally SCV to Gas
+0:56 Refinery
+0:57 Rally SCV to Ramp
+1:06 Depot, Rally SCV to Gas
+1:27 !orbital
+1:28 Reaper
+1:33 Two SCV off of Gas at 78 Gas
+1:41 Factory and Hotkey SCV
+1:53 Call down MULE
+1:59 Barracks Reactor
+2:09 Rally for CC
+2:14 Workers back on Gas and Command Center
+2:24 WidowMine
+2:30 Depot, Rally for Starport
+2:41 Starport
+2:46 Window Mine then Marines
+2:57 Call down MULE
+3:06 Marines
+3:09 Factory Tech Lab
+3:17 Viking
+3:27 Cyclone
+3:29 Marines
+3:38 Move CC
+3:54 Orbital Command
+3:47 Medivac
+3:48 Marines
+3:59 Cyclone
+4:08 Call down MULE
+4:02 Depot
+4:06 Marines
+4:11 Call down MULE
+4:17 Viking
+4:18 Depot
+4:24 Marines
+4:31 Cyclone
+4:37 Depot
+4:42 Marines
+4:47 Viking
+5:12 Call down MULE
+5:04 Command Center
+5:11 Two Barracks
+5:17 Liberator
+5:17 Call down MULE

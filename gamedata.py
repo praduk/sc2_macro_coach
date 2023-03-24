@@ -173,7 +173,7 @@ if platform == False:
             #if platform == "win32":
             if False:
                 tts_engine.setProperty('voice',tts_engine.getProperty('voices')[1].id)
-            tts_engine.setProperty('volume',1.0)
+            tts_engine.setProperty('volume',1.5)
             tts_engine.startLoop(False)
             while True:
                 if self.done:
@@ -530,8 +530,8 @@ def hit_b(args):
     global made_orbital
     made_orbital = True
 
-keyboard.on_release_key('1', hit_1)
-keyboard.on_release_key('s', hit_s)
+keyboard.on_release_key('k', hit_1)
+keyboard.on_release_key('p', hit_s)
 keyboard.on_release_key('b', hit_b)
 
 #def made_scv_callback():

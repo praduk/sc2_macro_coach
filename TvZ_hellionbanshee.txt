@@ -1,0 +1,56 @@
+0:17 Depot
+0:40 !barracks
+0:43 Refinery
+1:27 Reaper
+1:28 !orbital
+1:42 Command Center
+1:49 Depot
+1:59 Marines
+2:13 Factory
+2:20 Barracks Reactor
+2:41 Command Center
+2:53 Orbital Command
+3:02 Starport
+3:06 Refinery
+3:12 Hellions
+3:25 Barracks Tech Lab
+3:35 Hellions
+3:49 Banshee
+3:54 Orbital Command
+3:54 Cloaking Field
+4:00 Hellions
+4:06 Barracks Tech Lab
+4:14 Depot
+4:26 Hellions
+4:35 Banshee
+4:38 Depot
+4:39 Stimpack
+4:51 Two Barracks
+5:00 Orbital Command
+5:02 Double Refinery, Depot
+5:03 Factory Reactor
+5:10 Ebays
+5:26 Depot
+5:26 Starport Reactor
+5:26 Two Barracks
+5:37 One One
+5:56 Depot
+6:03 Siege Tank
+6:17 Barracks Reactor
+6:17 Medivacs
+6:21 Refinery
+6:22 Combat Shield
+6:24 Three Depots
+6:31 Barracks Reactor
+6:41 Factory
+6:46 Armory
+6:53 Siege Tank
+6:56 Marine
+7:04 Depot
+7:10 Command Center
+7:32 Factory Reactor
+7:36 Terran Infantry Weapons Level 2
+7:38 Terran Infantry Armor Level 2
+7:52 Refinery
+7:52 Terran Vehicle And Ship Armor Level 1
+8:00 Medivac

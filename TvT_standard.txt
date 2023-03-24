@@ -8,10 +8,10 @@
 1:27 Orbital
 1:28 !orbital
 1:30 Depot
-1:33 SCVs off of Gas at 80 Gas
+1:33 SCVs off of Gas at 78 Gas
 1:42 Factory
 1:59 Reaper
-2:00 Rally SCV to make Command Centera
+2:00 Rally SCV to make Command Center
 2:15 Command Center then Rally to Gasses
 2:27 Hellion
 2:31 Reactor

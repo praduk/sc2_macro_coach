@@ -2,7 +2,7 @@
 00:39 !scv_sync
 00:40 Barracks
 00:44 Refinery
-01:05 3x Mine gas
+01:05 Mine gas
 01:27 OrbitalCommand, Reaper
 01:28 !orbital
 01:38 CommandCenter
@@ -11,7 +11,7 @@
 02:05 Factory
 02:14 Refinery
 02:21 Reactor
-02:31 3x Mine gas
+02:31 Rally to Gas
 02:50 Starport, OrbitalCommand
 02:52 Depot
 02:55 Swap Factory

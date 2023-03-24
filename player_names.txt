@@ -5,3 +5,5 @@ Sinon
 Future
 XDthermyDX
 AgentSixNine
+Crippled
+AISlayer

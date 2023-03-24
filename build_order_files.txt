@@ -1,4 +1,4 @@
 TvT_tankdrop.txt
-TvZ_standard.txt
-TvP_hdrop.txt
+TvZ_hellionbanshee.txt
+TvP_safe.txt
 TvR.txt
