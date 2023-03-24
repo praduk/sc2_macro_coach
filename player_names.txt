@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Slumdog
 Mechachu
 Struggle
@@ -7,3 +8,13 @@ XDthermyDX
 AgentSixNine
 Crippled
 AISlayer
+=======
+Slumdog
+Mechachu
+Struggle
+Sinon
+Future
+XDthermyDX
+AgentSixNine
+Crippled
+>>>>>>> bba01247e1368e04de057ed842ba84492cc4add7

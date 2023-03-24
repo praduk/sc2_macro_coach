@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 0:16 Depot
 0:39 !barracks
 0:44 Refinery
@@ -62,4 +63,72 @@
 7:14 Medivacs
 7:16 CommandCenter
 7:19 BarracksReactors
+=======
+0:16 Depot
+0:39 !barracks
+0:44 Refinery
+0:50 Rally SCV to Gas
+0:56 Refinery
+1:27 Reaper
+1:28 !orbital
+1:30 Depot
+1:33 Two SCV off of Gas at 80 Gas
+1:42 Factory
+1:59 Reaper
+2:00 Rally SCV to make Command Centera
+2:15 Command Center then Rally to Gasses
+2:27 Hellion
+2:31 Reactor
+2:32 Rally SCV for Starport
+2:37 Starport
+2:40 Rally SCV for Depot
+2:46 Depot
+2:48 TechLab
+3:07 Tank, Marine
+3:12 Medivac
+3:26 Orbital, Marines, and Rally for Refinery
+3:31 Refinery
+3:06 SiegeTank
+3:31 Refinery
+3:38 Cyclone
+3:42 Refinery
+3:44 Starport TechLab
+3:46 Marines
+3:52 Mine gas
+3:56 Two Depots
+4:03 Two on Gas
+4:07 Raven
+4:18 SiegeTank
+4:20 Depot
+4:37 CommandCenter
+4:49 Raven
+4:50 SiegeTank, Marines, and One more on Gas
+4:57 Two Depots
+5:07 Two Barracks
+5:13 Marines
+5:22 SiegeTank
+5:25 Depot
+5:32 Swap Barracks and Starport
+5:44 Stimpack
+5:44 Vikings
+5:48 OrbitalCommand
+5:54 SiegeTank
+5:56 Two Ebays
+5:59 Call down MULE
+6:01 Barracks Reactors
+6:14 Vikings
+6:18 Marine
+6:18 Two Depots
+6:21 One-One
+6:30 SiegeTank
+6:32 Two Barracks
+6:44 Vikings
+6:46 Two Depot
+6:50 Marines
+7:02 SiegeTank
+7:07 Marines
+7:14 Medivacs
+7:16 CommandCenter
+7:19 BarracksReactors
+>>>>>>> bba01247e1368e04de057ed842ba84492cc4add7
 7:26 Marines

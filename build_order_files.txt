@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 TvT_tankdrop.txt
 TvZ_hellionbanshee.txt
 TvP_safe.txt
+=======
+TvT_tankdrop.txt
+TvZ_standard.txt
+TvP_hdrop.txt
+>>>>>>> bba01247e1368e04de057ed842ba84492cc4add7
 TvR.txt

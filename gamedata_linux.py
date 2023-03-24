@@ -17,28 +17,15 @@ import socket
 import hashlib
 import os
 import collections
-from overlay import Overlay
 from system_hotkey import SystemHotkey
 from datetime import datetime
 
-import keyboard
-
-#if platform =='win32':
-if False:
-    import pyttsx3
-else:
-    import gtts
-    #from playsound import playsound
-    #from pygame import mixer
-    #mixer.pre_init(44100, 16, 2, 4096) 
-    #mixer.init()
-    from audioplayer import AudioPlayer
+import gtts
+from audioplayer import AudioPlayer
 
 self_names = set(line.strip() for line in open('player_names.txt'))
 bo_files = list(line.strip() for line in open('build_order_files.txt'))
 
-#enable_overlay = True
-enable_overlay = False
 enable_timer = True
 enable_in_replay = True
 mute = False
@@ -111,7 +98,11 @@ def game_state():
     s.sendall(b"GET /ui HTTP/1.1\nHost: localhost\n\n")
     s.recv(4096) # remove headers
     raw = s.recv(4096).decode()
-    data = json.loads(raw)
+    data = None
+    try:
+        data = json.loads(raw)
+    except:
+        return None
 
     if data["activeScreens"]:
         return gs
@@ -120,7 +111,10 @@ def game_state():
     s.connect(('localhost',6119))
     s.sendall(b"GET /game HTTP/1.1\nHost: localhost\n\n")
     s.recv(4096) # remove headera
-    raw = s.recv(4096).decode()
+    try
+        raw = s.recv(4096).decode()
+    except
+        return None
     data = json.loads(raw)
 
     if data['isReplay']:
@@ -156,72 +150,36 @@ def game_state():
 
     return gs
 
-#if platform == 'win32':
-if platform == False:
-    class TTSThread(threading.Thread):
-        def __init__(self):
-            self.tts_queue = queue.Queue()
-            self.done = False
-            super().__init__()
-        def kill(self):
-            self.done=True
-        def say(self, text):
-            print("Say: " + text)
-            self.tts_queue.put(text)
-        def run(self):
-            tts_engine = pyttsx3.init()
-            #if platform == "win32":
-            if False:
-                tts_engine.setProperty('voice',tts_engine.getProperty('voices')[1].id)
-            tts_engine.setProperty('volume',1.5)
-            tts_engine.startLoop(False)
-            while True:
-                if self.done:
-                    break
-                if self.tts_queue.empty():
-                    tts_engine.iterate()
-                    time.sleep(0.1)
-                else:
-                    data = self.tts_queue.get()
-                    tts_engine.say(data)
-            tts_engine.endLoop()
-else:
-    class TTSThread(threading.Thread):
-        def __init__(self):
-            self.tts_queue = queue.Queue()
-            self.done = False
-            super().__init__()
-        def kill(self):
-            self.done=True
-        def say(self, text):
-            print("Say: " + text)
-            self.tts_queue.put(text)
-        def run(self):
-            while True:
-                if self.done:
-                    break
-                if self.tts_queue.empty():
-                    time.sleep(0.1)
-                else:
-                    text = self.tts_queue.get()
-                    if not mute:
-                        filename = "tts\\" + hashlib.sha256(text.encode()).hexdigest() + ".mp3"
-                        if not os.path.exists("tts"):
-                            os.makedirs("tts")
-                        if not os.path.exists(filename):
-                            tts = gtts.gTTS(text)
-                            tts.save(filename)
-                        if os.path.exists(filename):
-                            #playsound(filename)
-                            #mixer.init()
-                            #mixer.music.load(filename)
-                            #mixer.music.play()
-                            #mixer.Sound(os.getcwd() + "\\" + filename).play()
-                            ap = AudioPlayer(filename)
-                            ap.volume = 25
-                            ap.play(block=True)
+class TTSThread(threading.Thread):
+     def __init__(self):
+         self.tts_queue = queue.Queue()
+         self.done = False
+         super().__init__()
+     def kill(self):
+         self.done=True
+     def say(self, text):
+         print("Say: " + text)
+         self.tts_queue.put(text)
+     def run(self):
+         while True:
+             if self.done:
+                 break
+             if self.tts_queue.empty():
+                 time.sleep(0.1)
+             else:
+                 text = self.tts_queue.get()
+                 if not mute:
+                     filename = "tts/" + hashlib.sha256(text.encode()).hexdigest() + ".mp3"
+                     if not os.path.exists("tts"):
+                         os.makedirs("tts")
+                     if not os.path.exists(filename):
+                         tts = gtts.gTTS(text)
+                         tts.save(filename)
+                     if os.path.exists(filename):
+                         ap = AudioPlayer(filename)
+                         ap.volume = 25
+                         ap.play(block=True)
 
-ol = Overlay()
 class Monitor(threading.Thread):
     def __init__(self):
         self.tts = TTSThread()
@@ -257,25 +215,22 @@ class Monitor(threading.Thread):
                 self.scv_sync = time
 
     def init(self):
-        ol.set_top("")
-        ol.set("")
         self.last_t = -1
         made_scv = False
         self.last_scv = 0
         self.scv_sync = 0
         self.scv_warning = False
-        ol.set_border()
-        ol.set_progress()
 
 
     def tick(self):
         global made_scv
         global made_orbital
-        
-        global enable_overlay
 
         gs = game_state()
-        #if not gs.in_game:
+
+        if gs is None:
+            return
+
         global enable_in_replay
         if not gs.in_game or ((not enable_in_replay) and gs.is_replay):
             self.init()
@@ -284,16 +239,12 @@ class Monitor(threading.Thread):
             bo_files = list(line.strip() for line in open('build_order_files.txt'))
             # Load Events
             if gs.race == "T":
-                #ol.set("Terran")
                 m.events = parse_events(bo_files[0])
             elif gs.race == "Z":
-                #ol.set("Zerg")
                 m.events = parse_events(bo_files[1])
             elif gs.race == "P":
-                #ol.set("Protoss")
                 m.events = parse_events(bo_files[2])
             elif gs.race == "R":
-                #ol.set("Random")
                 m.events = parse_events(bo_files[3])
             self.init()
 
@@ -301,8 +252,6 @@ class Monitor(threading.Thread):
             notes = player_notes(gs.player, gs.type)
             if notes:
                 self.tts.say("opponent likes " + notes)
-                if enable_overlay:
-                    ol.set(ol.get() + "\n" + gs.player + ": " + notes)
 
 
         if gs.t > self.last_t:
@@ -318,113 +267,6 @@ class Monitor(threading.Thread):
                 data = self.events[gs.t]
                 if data[0] == '!':
                     self.process_command(data[1:], gs, False)
-
-        # Overlay
-        num_next_steps = 30
-        num_prev_steps = 0
-        ol_str = ""
-        count = 0
-
-        if enable_overlay:
-            for t in range(gs.t-num_prev_steps, gs.t+num_next_steps):
-                if t in self.events:
-                    dt = int(t - gs.t)
-                    ol_str = dtimer_string(dt) + " " + self.events[t] + "\n"
-                    if dt < 1:
-                        ol.set(ol_str,'red')
-                    elif dt < 2:
-                        ol.set(ol_str,'orange')
-                    elif dt < 3:
-                        ol.set(ol_str,'yellow')
-                    else:
-                        ol.set(ol_str)
-                    break
-
-        if made_scv:
-            self.last_scv = gs.t
-            made_scv = False
-
-        if self.last_scv>=0 and gs.t >= self.scv_sync:
-            cycle = (gs.t - self.scv_sync) % 12
-            cyclef = (gs.tf - self.scv_sync) % 12
-            #if cycle==0:
-            #    cycle = 12
-
-            on_time = (gs.t - cycle - self.last_scv) <= 6
-            late = (gs.t - cycle - self.last_scv) >= 18
-
-            if gs.is_replay:
-                on_time = True
-                late = False
-            
-            if on_time:
-                self.scv_warning = False
-
-            lcolor = 'green'
-            rcolor = 'yellow'
-            if not on_time:
-                lcolor = 'yellow'
-                rcolor = 'red'
-            if late:
-                lcolor = 'red'
-                rcolor = 'firebrick'
-            #if late:
-            #    if int(10*gs.tf)%2==0:
-            #        lcolor = 'red'
-            #        rcolor = 'orange'
-            #    else:
-            #        lcolor = 'orange'
-            #        rcolor = 'red'
-            #    if not self.scv_warning:
-            #        self.scv_warning = True
-            #        #self.tts.say("SCV Warning")
-            #    ol.set_border(12,lcolor)
-            #else:
-            #    ol.set_border(0,lcolor)
-            #ol.set_progress(1.0-(cyclef/12.0),lcolor,rcolor)
-            ol.set_progress((cyclef/12.0),rcolor,lcolor)
-        else:
-            ol.set_progress()
-            ol.set_border()
-
-
-
-        #if enable_timer and last_scv > 0:
-        #    dt = int(last_scv + 12 - gs.t)
-        #    if dt%2==0:
-        #        flash_color = 'red'
-        #    else:
-        #        flash_color = 'orange'
-
-        #    #ol_str = str(dt)
-        #    #if dt < -12:
-        #    #    ol.set_top("One",flash_color)
-        #    #    ol.set_border(24,flash_color)
-        #    #elif dt <= 0:
-        #    #    ol.set_top(ol_str,flash_color)
-        #    #    ol.set_border(12-1*dt,flash_color)
-        #    #else:
-        #    #    ol.set_top(ol_str)
-        #    #    ol.set_border()
-
-        #    if dt>=0:
-        #        ol.set_progress(dt/12,'green','yellow')
-        #    elif dt>=-12:
-        #        ol.set_progress(-dt/12,'red','yellow')
-        #    else:
-        #        ol.set_progress(1,flash_color)
-        #else:
-        #    #ol.set_top('')
-        #    ol.set_progress(0)
-
-
-
-        #if not enable_overlay:
-        #    ol.set("")
-        #global enable_timer
-        #if not enable_timer:
-        #    ol.set_top("")
-        
         
         self.last_t = gs.t
 
@@ -463,7 +305,6 @@ def stop_program(args):
     global stop
     print("Stop")
     m.tts.kill()
-    ol.root.destroy()
     stop = True
     print('Stopped')
 
@@ -515,43 +356,13 @@ hk.register(('control','shift','v'), callback=none)
 hk.register(('control','shift','f'), callback=overlay_toggle)
 hk.register(('control','shift','space'), callback=mute_toggle)
 
-def hit_1(args):
-    global time_of_1
-    time_of_1 = datetime.now()
-    #ol.set_top("Hit 1")
-def hit_s(args):
-    global made_scv
-    global time_of_1
-    if (datetime.now()-time_of_1).total_seconds() < 0.75:
-        time_of_1 = datetime.now()
-        made_scv = True
-        #ol.set_top("Made SCV")
-def hit_b(args):
-    global made_orbital
-    made_orbital = True
-
-keyboard.on_release_key('k', hit_1)
-keyboard.on_release_key('p', hit_s)
-keyboard.on_release_key('b', hit_b)
-
-#def made_scv_callback():
-#    global made_scv
-#    made_scv = True
-#    ol.set_top("Made SCV")
-#keyboard.add_hotkey('1, s', made_scv_callback)
-
-#keyboard.add_hotkey('s', scv_production)
-
-#while not stop:
-#    m.tick()
-#    time.sleep(0.1)
-
 def main_function():
     m.tick()
-    ol.root.after(100,main_function)
 main_function()
 
-ol.root.bind('<Control-c>', quit)
-ol.run()
+
+while not stop:
+    main_function()
+    time.sleep(0.1)
 
 print("Stopped")
